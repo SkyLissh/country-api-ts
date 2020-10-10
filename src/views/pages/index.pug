@@ -1,0 +1,68 @@
+doctype
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Country API
+
+    // Fonts
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap")
+    link(
+      rel="stylesheet",
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css",
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp",
+      crossorigin="anonymous"
+    )
+
+    // Styles
+    link(rel="stylesheet", href="https://necolas.github.io/normalize.css/8.0.1/normalize.css")
+    link(rel="stylesheet", href="css/styles.css")
+
+  body
+    header
+      nav.navbar
+        h1 Where in the world?
+        button(type="button")
+          i.far.fa-moon
+          |Dark Mode
+      
+      .container
+        .search__container
+          ion-icon(name="search")
+          input#search.form__input.search__input(
+            type="search",
+            name="search",
+            placeholder="Search for a country..."
+          )
+      .container
+        .country__options
+          select.country__selected(name="countries") 
+            option.country__option(value="default", selected, disabled) Filter by Region
+            option.country__option(value="africa") Africa
+            option.country__option(value="america") America
+            option.country__option(value="europe") Europe
+            option.country__option(value="oceania") Oceania
+    
+    main.container
+      .card
+        .card__image: img(
+          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3.india.com%2Fwp-content%2Fuploads%2F2016%2F05%2Fmexico_flag.jpg&f=1&nofb=1",
+          alt="flag"
+        )
+        .card__body
+          .card__title: h2 Mexico
+          .card__content
+            p 
+              span.text__semibold Population: 
+              |81,770,900
+            p 
+              span.text__semibold Region: 
+              |America
+            p 
+              span.text__semibold Capital: 
+              |CDMX
+    
+    script(src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js")
+    script(src="js/scripts-min.js")
+
+      

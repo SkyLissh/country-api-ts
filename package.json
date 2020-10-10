@@ -1,0 +1,36 @@
+{
+	"name": "country-api-ts",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/browser-sync": "^2.26.1",
+		"@types/gulp": "^4.0.7",
+		"@types/gulp-concat": "0.0.32",
+		"@types/gulp-imagemin": "^7.0.0",
+		"@types/gulp-plumber": "0.0.32",
+		"@types/gulp-pug": "^4.0.0",
+		"@types/gulp-sass": "^4.0.0",
+		"@types/gulp-terser": "^1.2.1",
+		"browser-sync": "^2.26.12",
+		"gulp": "^4.0.2",
+		"gulp-cache-bust": "^1.4.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-plumber": "^1.2.1",
+		"gulp-pug": "^4.0.1",
+		"gulp-purgecss": "^3.0.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-terser": "^1.4.0",
+		"gulp-typescript": "^6.0.0-alpha.1",
+		"node-sass": "^4.14.1",
+		"ts-node": "^9.0.0",
+		"typescript": "^4.0.3"
+	}
+}

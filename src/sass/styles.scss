@@ -1,0 +1,156 @@
+$lightBackground: hsl(0, 0%, 98%);
+$lightElement: hsl(0, 0%, 100%);
+$lightInput: hsl(0, 0%, 52%);
+$lightText: hsl(200, 15%, 8%);
+
+$darkBackground: hsl(207, 26%, 17%);
+$darkElement: hsl(209, 23%, 22%);
+
+$mainFont: 'Nunito Sans', sans-serif;
+
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: $mainFont;
+	background: $lightBackground;
+}
+
+// Globals
+.container {
+	width: 95%;
+	max-width: 75rem;
+	margin: 0 auto;
+}
+
+.text__semibold {
+	font-weight: 600;
+}
+
+// Navbar
+.navbar {
+	background: $lightElement;
+	padding: 1.5rem 1rem;
+
+	box-shadow: 0px -10px 20px $darkElement;
+
+	display: flex;
+	justify-content: space-between;
+
+	h1 {
+		font-weight: 800;
+		font-size: 1rem;
+	}
+
+	button {
+		border: none;
+		background-color: transparent;
+
+		font-weight: 600;
+		font-size: 0.8rem;
+
+		&:focus {
+			outline: none;
+		}
+
+		i {
+			margin: 0.4rem;
+		}
+	}
+}
+
+// Search
+.search__container {
+	margin: 1.5rem auto;
+	padding: 1.2rem 1.5rem;
+
+	background: $lightElement;
+	border-radius: 0.5rem;
+	box-shadow: 8px 8px 20px -15px $darkElement;
+
+	ion-icon {
+		margin-left: 0.5rem;
+		margin-right: 1.5rem;
+
+		font-size: 1.5rem;
+		color: $lightInput;
+	}
+
+	display: flex;
+}
+.search__input {
+	border: none;
+	background: none;
+
+	flex: 1;
+}
+.search__input:focus {
+	outline: none;
+}
+
+// Filter
+.country__options {
+	position: relative;
+	max-width: 14rem;
+
+	border-radius: 0.5rem;
+	background: $lightElement;
+	box-shadow: 8px 8px 20px -15px $darkElement;
+}
+.country__options::after {
+	position: absolute;
+	top: 16px;
+	right: 18px;
+
+	content: '\f0d7';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-size: 1.5rem;
+	color: $lightInput;
+
+	pointer-events: none;
+}
+
+.country__selected {
+	margin: 1.5rem auto;
+	padding: 1.3rem;
+	width: 100%;
+
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	border: none;
+	background: none;
+
+	display: block;
+}
+
+.country__selected:focus {
+	outline: none;
+}
+
+// Card
+.card {
+	margin: 0 1.5rem;
+	min-height: 26rem;
+
+	background: $lightElement;
+	border-radius: 0.5rem;
+	box-shadow: 8px 8px 20px -10px;
+}
+.card__image {
+	img {
+		border-radius: 0.5rem 0.5rem 0 0;
+		max-width: 100%;
+	}
+}
+.card__body {
+	padding: 1.3rem 2rem;
+}
