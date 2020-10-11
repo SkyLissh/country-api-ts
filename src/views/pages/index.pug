@@ -21,20 +21,20 @@ html(lang="en")
   body
     header
       nav.navbar
-        h1 Where in the world?
-        button(type="button")
-          i.far.fa-moon
-          |Dark Mode
+        .navbar__content
+          h1 Where in the world?
+          button.button--fab(type="button"): i.fas.fa-moon
       
-      .container
+      .container.filter__container
         .search__container
-          ion-icon(name="search")
           input#search.form__input.search__input(
             type="search",
             name="search",
             placeholder="Search for a country..."
           )
-      .container
+          button.button--fab(type="button")
+            ion-icon(name="search")
+
         .country__options
           select.country__selected(name="countries") 
             option.country__option(value="default", selected, disabled) Filter by Region
@@ -43,25 +43,77 @@ html(lang="en")
             option.country__option(value="europe") Europe
             option.country__option(value="oceania") Oceania
     
-    main.container
-      .card
-        .card__image: img(
-          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3.india.com%2Fwp-content%2Fuploads%2F2016%2F05%2Fmexico_flag.jpg&f=1&nofb=1",
-          alt="flag"
-        )
-        .card__body
-          .card__title: h2 Mexico
-          .card__content
-            p 
-              span.text__semibold Population: 
-              |81,770,900
-            p 
-              span.text__semibold Region: 
-              |America
-            p 
-              span.text__semibold Capital: 
-              |CDMX
-    
+    main.container.section
+      .card__container
+        .card
+          .card__image: img(
+            src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.accesscal.org%2Fwp-content%2Fuploads%2F2016%2F09%2Famerican-flag-7.jpg&f=1&nofb=1",
+            alt="flag"
+          )
+          .card__body
+            h2.card__title United States
+            .card__content
+              p 
+                span.text--semibold Population: 
+                |323,947,000
+              p 
+                span.text--semibold Region: 
+                |America
+              p 
+                span.text--semibold Capital: 
+                |Washington, D.C.
+        .card
+           .card__image: img(
+             src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.accesscal.org%2Fwp-content%2Fuploads%2F2016%2F09%2Famerican-flag-7.jpg&f=1&nofb=1",
+             alt="flag"
+           )
+           .card__body
+             h2.card__title United States
+             .card__content
+               p 
+                 span.text--semibold Population: 
+                 |323,947,000
+               p 
+                 span.text--semibold Region: 
+                 |America
+               p 
+                 span.text--semibold Capital: 
+                 |Washington, D.C.
+        .card
+            .card__image: img(
+              src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.accesscal.org%2Fwp-content%2Fuploads%2F2016%2F09%2Famerican-flag-7.jpg&f=1&nofb=1",
+              alt="flag"
+            )
+            .card__body
+              h2.card__title United States
+              .card__content
+                p 
+                  span.text--semibold Population: 
+                  |323,947,000
+                p 
+                  span.text--semibold Region: 
+                  |America
+                p 
+                  span.text--semibold Capital: 
+                  |Washington, D.C.
+        .card
+            .card__image: img(
+              src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.accesscal.org%2Fwp-content%2Fuploads%2F2016%2F09%2Famerican-flag-7.jpg&f=1&nofb=1",
+              alt="flag"
+            )
+            .card__body
+              h2.card__title United States
+              .card__content
+                p 
+                  span.text--semibold Population: 
+                  |323,947,000
+                p 
+                  span.text--semibold Region: 
+                  |America
+                p 
+                  span.text--semibold Capital: 
+                  |Washington, D.C.
+
     script(src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js")
     script(src="js/scripts-min.js")
 

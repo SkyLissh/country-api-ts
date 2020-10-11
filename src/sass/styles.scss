@@ -1,7 +1,8 @@
-$lightBackground: hsl(0, 0%, 98%);
+$lightBackground: hsl(0, 0%, 95%);
 $lightElement: hsl(0, 0%, 100%);
 $lightInput: hsl(0, 0%, 52%);
 $lightText: hsl(200, 15%, 8%);
+$lightPrimary: #ffa000;
 
 $darkBackground: hsl(207, 26%, 17%);
 $darkElement: hsl(209, 23%, 22%);
@@ -20,105 +21,170 @@ html {
 body {
 	font-family: $mainFont;
 	background: $lightBackground;
+	margin-top: 8rem;
+}
+
+button {
+	border: none;
+
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+input {
+	border: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+select {
+	border: none;
+
+	&:focus {
+		outline: none;
+	}
 }
 
 // Globals
 .container {
 	width: 95%;
-	max-width: 75rem;
+	max-width: 90%;
 	margin: 0 auto;
+
+	@media (min-width: 768px) {
+		max-width: 80%;
+	}
 }
 
-.text__semibold {
+.section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.text--semibold {
 	font-weight: 600;
+}
+
+// Button
+.button--fab {
+	padding: 0;
+	height: 3rem;
+	width: 3rem;
+
+	border-radius: 100%;
+	color: $lightElement;
+	background: $lightPrimary;
+	box-shadow: 8px 8px 20px -12px $darkElement;
+	font-size: 1.5rem;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
 
 // Navbar
 .navbar {
-	background: $lightElement;
-	padding: 1.5rem 1rem;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
 
+	width: 100%;
+	padding: 1.5rem 0;
+
+	background: $lightElement;
 	box-shadow: 0px -10px 20px $darkElement;
+}
+.navbar__content {
+	margin: 0 1rem;
 
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 
-	h1 {
-		font-weight: 800;
-		font-size: 1rem;
+	@media (min-width: 768px) {
+		margin: 0 10%;
 	}
 
-	button {
-		border: none;
-		background-color: transparent;
+	h1 {
+		margin: 0;
 
-		font-weight: 600;
-		font-size: 0.8rem;
+		font-weight: 800;
+		font-size: 1.5rem;
+	}
+}
 
-		&:focus {
-			outline: none;
-		}
-
-		i {
-			margin: 0.4rem;
-		}
+// Filter Container
+@media (min-width: 768px) {
+	.filter__container {
+		display: flex;
+		justify-content: space-between;
 	}
 }
 
 // Search
 .search__container {
 	margin: 1.5rem auto;
-	padding: 1.2rem 1.5rem;
 
 	background: $lightElement;
 	border-radius: 0.5rem;
 	box-shadow: 8px 8px 20px -15px $darkElement;
 
-	ion-icon {
-		margin-left: 0.5rem;
-		margin-right: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-		font-size: 1.5rem;
-		color: $lightInput;
+	@media (min-width: 768px) {
+		width: 40%;
+		margin: 1.5rem 0;
 	}
 
-	display: flex;
+	.button--fab {
+		margin: 0 0.5rem;
+	}
 }
 .search__input {
-	border: none;
-	background: none;
+	padding: 1.2rem 1.5rem;
+
+	border-radius: 0.5rem;
 
 	flex: 1;
-}
-.search__input:focus {
-	outline: none;
 }
 
 // Filter
 .country__options {
 	position: relative;
 	max-width: 14rem;
+	margin: 1.5rem 0;
 
 	border-radius: 0.5rem;
 	background: $lightElement;
 	box-shadow: 8px 8px 20px -15px $darkElement;
+
+	@media (min-width: 768px) {
+		width: 20%;
+	}
 }
 .country__options::after {
 	position: absolute;
-	top: 16px;
-	right: 18px;
+	top: 12px;
+	right: 15px;
 
 	content: '\f0d7';
 	font-family: 'Font Awesome 5 Free';
 	font-weight: 900;
-	font-size: 1.5rem;
-	color: $lightInput;
+	font-size: 2rem;
+	color: $lightPrimary;
 
 	pointer-events: none;
 }
 
 .country__selected {
-	margin: 1.5rem auto;
 	padding: 1.3rem;
 	width: 100%;
 
@@ -126,24 +192,32 @@ body {
 	-webkit-appearance: none;
 	appearance: none;
 
-	border: none;
 	background: none;
 
 	display: block;
 }
 
-.country__selected:focus {
-	outline: none;
+// Card
+@media (min-width: 768px) {
+	.card__container {
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
-// Card
 .card {
-	margin: 0 1.5rem;
+	margin: 2rem 1.5rem;
 	min-height: 26rem;
 
 	background: $lightElement;
 	border-radius: 0.5rem;
 	box-shadow: 8px 8px 20px -10px;
+
+	@media (min-width: 768px) {
+		margin: 2rem 0;
+
+		flex: 0 0 calc(25% - 2rem);
+	}
 }
 .card__image {
 	img {
@@ -151,6 +225,9 @@ body {
 		max-width: 100%;
 	}
 }
+.card__title {
+	margin-top: 0;
+}
 .card__body {
-	padding: 1.3rem 2rem;
+	padding: 1rem 2rem;
 }
