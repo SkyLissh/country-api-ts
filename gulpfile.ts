@@ -82,7 +82,7 @@ gulp.task('default', (): void => {
 	init({
 		server: 'dist'
 	});
-	gulp.watch('src/ts/**/*.ts', gulp.series('compile')).on('chanage', reload);
+	gulp.watch('src/ts/**/*.ts', gulp.series('compile')).on('change', reload);
 	gulp.watch('src/views/**/*.pug', gulp.series('views')).on('change', reload);
 	gulp.watch('src/sass/**/*.scss', gulp.series('sass'));
 });
