@@ -1,17 +1,16 @@
-import gulp from 'gulp';
-import ts from 'gulp-typescript';
-import terser from 'gulp-terser';
-import concat from 'gulp-concat';
-import pug from 'gulp-pug';
+const gulp = require('gulp');
+const ts = require('gulp-typescript');
+const terser = require('gulp-terser');
+const pug = require('gulp-pug');
 
-import sass from 'gulp-sass';
-import clean from 'gulp-purgecss';
+const sass = require('gulp-sass');
+const clean = require('gulp-purgecss');
 
 const cacheBust = require('gulp-cache-bust');
-import imageMin from 'gulp-imagemin';
+const imageMin = require('gulp-imagemin');
 
-import { init as server, stream, reload } from 'browser-sync';
-import plumber from 'gulp-plumber';
+const { init, stream, reload } = require('browser-sync');
+const plumber = require('gulp-plumber');
 
 const tsProject = ts.createProject('tsconfig.json');
 
@@ -19,10 +18,9 @@ gulp.task(
 	'compile',
 	(): NodeJS.ReadWriteStream => {
 		return gulp
-			.src('src/ts/*.ts')
+			.src('src/ts/**/*.ts')
 			.pipe(plumber())
 			.pipe(tsProject())
-			.pipe(concat('scripts-min.js'))
 			.pipe(terser())
 			.pipe(gulp.dest('dist/js'));
 	}
@@ -81,7 +79,7 @@ gulp.task(
 );
 
 gulp.task('default', (): void => {
-	server({
+	init({
 		server: 'dist'
 	});
 	gulp.watch('src/ts/**/*.ts', gulp.series('compile')).on('chanage', reload);
