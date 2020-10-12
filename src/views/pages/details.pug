@@ -6,22 +6,13 @@ html(lang="en")
       include ../templates/navbar.pug
 
       .container
-        button.button.button--back(type="button")
-          i.fas.fa-arrow-left
-          |Back
+        a(href="/")
+          button.button.button--back(type="button")
+            i.fas.fa-arrow-left
+            |Back
+          
     
     main.container.section
       .detail
-        .detail__image: img(src="https://restcountries.eu/data/bel.svg", alt="flag")
-        .detail__body
-          h2.detail__title Belgium
-          .detail__content
-            p
-              span.text--semibold Native Name: 
-              |Belgie
-          .detail__footer
-            h3.detail__footer-title Border Countries:
-            .detail__border
-              button.button(type="button") France
-              button.button(type="button") France
-              button.button(type="button") France
+    
+    script(src="./js/script-min.js")
