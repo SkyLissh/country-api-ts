@@ -85,3 +85,11 @@ gulp.task('default', (): void => {
 	gulp.watch('src/views/**/*.pug', gulp.series('views')).on('change', reload);
 	gulp.watch('src/sass/**/*.scss', gulp.series('sass'));
 });
+
+gulp.task(
+	'build',
+	async (): Promise<void> => {
+		const buildTasks = gulp.series('compile', 'views', 'sass');
+		buildTasks();
+	}
+);

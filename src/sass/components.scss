@@ -131,7 +131,7 @@
 		align-items: center;
 
 		@media (min-width: 768px) {
-			width: 40%;
+			width: 50%;
 			margin: 1.5rem 0;
 		}
 
@@ -183,10 +183,6 @@
 		background-color: $element-color;
 		box-shadow: 8px 8px 20px -15px $shadow-color;
 		transition: all 0.3s ease;
-
-		@media (min-width: 768px) {
-			width: 20%;
-		}
 	}
 	.country__options::after {
 		position: absolute;
@@ -204,6 +200,7 @@
 
 	.country__selected {
 		padding: 1.3rem;
+		margin-right: 1.5rem;
 		width: 100%;
 
 		-moz-appearance: none;
@@ -286,9 +283,9 @@
 	.detail {
 		margin: 3rem 0;
 
-		@media (min-width: 768px) {
+		@media (min-width: 1025px) {
 			display: grid;
-			grid-template-columns: 2.8fr 3fr;
+			grid-template-columns: 3fr 3fr;
 			gap: 6rem;
 		}
 	}
@@ -324,7 +321,7 @@
 		@media (min-width: 768px) {
 			height: 14rem;
 			max-height: 14rem;
-			font-size: 1.2rem;
+			font-size: 1.1rem;
 
 			display: flex;
 			flex-direction: column;
@@ -349,6 +346,10 @@
 		.button {
 			padding: 1rem;
 			font-size: 1.2rem;
+
+			&:hover {
+				cursor: initial;
+			}
 		}
 	}
 }

@@ -133,7 +133,7 @@ select {
 	@media (min-width: 768px) {
 		display: grid;
 		gap: 4rem 2rem;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
 	}
 
 	@media (min-width: 1445px) {
