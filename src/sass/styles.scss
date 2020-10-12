@@ -307,8 +307,9 @@ select {
 		font-size: 1.2rem;
 
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 }
 
@@ -320,6 +321,10 @@ select {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
+
+	@media (min-width: 768px) {
+		gap: 2rem;
+	}
 
 	.button {
 		padding: 1rem;
