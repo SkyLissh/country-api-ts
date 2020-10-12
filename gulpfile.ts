@@ -21,7 +21,6 @@ gulp.task(
 			.src('src/ts/**/*.ts')
 			.pipe(plumber())
 			.pipe(tsProject())
-			.pipe(terser())
 			.pipe(gulp.dest('dist/js'));
 	}
 );
@@ -32,7 +31,7 @@ gulp.task(
 		return gulp
 			.src('src/views/pages/*.pug')
 			.pipe(plumber())
-			.pipe(pug())
+			.pipe(pug({ pretty: true }))
 			.pipe(cacheBust({ type: 'timestamp' }))
 			.pipe(gulp.dest('dist'));
 	}
@@ -44,7 +43,7 @@ gulp.task(
 		return gulp
 			.src('src/sass/styles.scss')
 			.pipe(plumber())
-			.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+			.pipe(sass().on('error', sass.logError))
 			.pipe(stream())
 			.pipe(gulp.dest('dist/css'));
 	}
