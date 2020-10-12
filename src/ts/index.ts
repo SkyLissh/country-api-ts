@@ -22,6 +22,8 @@ async function main(): Promise<void> {
 	);
 
 	searchInput?.addEventListener('input', searchCountry);
+
+	renderDetails();
 }
 
 document.addEventListener('DOMContentLoaded', (): void => {
@@ -94,12 +96,12 @@ function createCard(country: Country): Element {
 	card.append(cardImage, cardBody);
 
 	card.addEventListener('click', (): void => {
-		window.location.href = `/details.html#${country.name}`;
+		window.location.href = `/details.html#${country.name.toLowerCase()}`;
 	});
 
 	return card;
 }
 
-function formatNumbers(x: number): string {
-	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+function formatNumbers(x: number | undefined): string | undefined {
+	return x?.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 }
