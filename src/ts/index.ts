@@ -93,6 +93,10 @@ function createCard(country: Country): Element {
 	card.classList.add('card');
 	card.append(cardImage, cardBody);
 
+	card.addEventListener('click', (): void => {
+		window.location.href = `/details.html#${country.name}`;
+	});
+
 	return card;
 }
 
