@@ -1,13 +1,29 @@
-$lightBackground: hsl(0, 0%, 95%);
-$lightElement: hsl(0, 0%, 100%);
-$lightInput: hsl(0, 0%, 52%);
-$lightText: hsl(200, 15%, 8%);
-$lightPrimary: #ffa000;
+$light-background: hsl(0, 0%, 95%);
+$light-element: hsl(0, 0%, 100%);
+$light-placeholder: hsl(0, 0%, 52%);
+$light-text: hsl(200, 15%, 8%);
+$light-primary: #ffa000;
+$light-shadow: hsl(43, 12%, 11%);
 
-$darkBackground: hsl(207, 26%, 17%);
-$darkElement: hsl(209, 23%, 22%);
+$dark-background: hsl(207, 26%, 17%);
+$dark-element: hsl(209, 23%, 22%);
+$dark-placeholder: hsl(208, 16%, 70%);
+$dark-text: hsl(0, 0%, 95%);
+$dark-primary: #ffc400;
+$dark-shadow: hsl(0, 0%, 0%);
 
-$mainFont: 'Nunito Sans', sans-serif;
+@import './components.scss';
+
+@mixin theme($theme) {
+	@include button($theme);
+	@include navbar($theme);
+	@include search($theme);
+	@include filter($theme);
+	@include card($theme);
+	@include detail($theme);
+}
+
+$main-font: 'Nunito Sans', sans-serif;
 
 html {
 	box-sizing: border-box;
@@ -19,9 +35,39 @@ html {
 }
 
 body {
-	font-family: $mainFont;
-	background: $lightBackground;
+	font-family: $main-font;
 	margin-top: 8rem;
+	transition: all 0.3s ease;
+
+	&.theme--light {
+		background-color: $light-background;
+
+		$light-theme: (
+			'bg-color': $light-background,
+			'element-color': $light-element,
+			'placeholder-color': $light-placeholder,
+			'text-color': $light-text,
+			'primary-color': $light-primary,
+			'shadow-color': $light-shadow
+		);
+
+		@include theme($light-theme);
+	}
+
+	&.theme--dark {
+		background-color: $dark-background;
+
+		$dark-theme: (
+			'bg-color': $dark-background,
+			'element-color': $dark-element,
+			'placeholder-color': $dark-placeholder,
+			'text-color': $dark-text,
+			'primary-color': $dark-primary,
+			'shadow-color': $dark-shadow
+		);
+
+		@include theme($dark-theme);
+	}
 }
 
 button {
@@ -74,148 +120,12 @@ select {
 	display: none;
 }
 
-// Button
-.button {
-	padding: 1rem 2rem;
-
-	background: $lightPrimary;
-	color: $lightElement;
-	box-shadow: 8px 8px 20px -12px $darkElement;
-	border-radius: 0.5rem;
-
-	font-size: 1.3rem;
-	font-weight: 600;
-
-	i {
-		margin-right: 1rem;
-	}
-}
-
-.button--fab {
-	padding: 0;
-	height: 3rem;
-	width: 3rem;
-
-	border-radius: 100%;
-	font-size: 1.5rem;
-
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-
-	i {
-		margin: 0;
-	}
-}
-
-// Navbar
-.navbar {
-	z-index: 100;
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	width: 100vw;
-	padding: 1.5rem 0;
-
-	background: $lightElement;
-	box-shadow: 0px -10px 20px $darkElement;
-}
-.navbar__content {
-	margin: 0 1rem;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	@media (min-width: 768px) {
-		margin: 0 10%;
-	}
-
-	h1 {
-		margin: 0;
-
-		font-weight: 800;
-		font-size: 1.5rem;
-	}
-}
-
 // Filter Container
 @media (min-width: 768px) {
 	.filter__container {
 		display: flex;
 		justify-content: space-between;
 	}
-}
-
-// Search
-.search__container {
-	margin: 1.5rem auto;
-
-	background: $lightElement;
-	border-radius: 0.5rem;
-	box-shadow: 8px 8px 20px -15px $darkElement;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	@media (min-width: 768px) {
-		width: 40%;
-		margin: 1.5rem 0;
-	}
-
-	.button--fab {
-		margin: 0 0.5rem;
-	}
-}
-.search__input {
-	padding: 1.2rem 1.5rem;
-
-	border-radius: 0.5rem;
-
-	flex: 1;
-}
-
-// Filter
-.country__options {
-	position: relative;
-	max-width: 14rem;
-	margin: 1.5rem 0;
-
-	border-radius: 0.5rem;
-	background: $lightElement;
-	box-shadow: 8px 8px 20px -15px $darkElement;
-
-	@media (min-width: 768px) {
-		width: 20%;
-	}
-}
-.country__options::after {
-	position: absolute;
-	top: 12px;
-	right: 15px;
-
-	content: '\f0d7';
-	font-family: 'Font Awesome 5 Free';
-	font-weight: 900;
-	font-size: 2rem;
-	color: $lightPrimary;
-
-	pointer-events: none;
-}
-
-.country__selected {
-	padding: 1.3rem;
-	width: 100%;
-
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-
-	background: none;
-
-	display: block;
 }
 
 // Card
@@ -228,106 +138,5 @@ select {
 
 	@media (min-width: 1445px) {
 		gap: 4rem;
-	}
-}
-
-.card {
-	margin: 2rem 1.5rem;
-	min-height: 26rem;
-
-	background: $lightElement;
-	border-radius: 0.5rem;
-	box-shadow: 8px 8px 20px -10px;
-
-	&:hover {
-		cursor: pointer;
-	}
-
-	@media (min-width: 768px) {
-		margin: 0;
-	}
-}
-.card__image {
-	height: 13rem;
-	max-height: 13rem;
-	img {
-		border-radius: 0.5rem 0.5rem 0 0;
-		width: 100%;
-		height: 100%;
-		max-width: 100%;
-		max-height: 100%;
-
-		object-fit: cover;
-	}
-}
-.card__title {
-	margin-top: 0;
-}
-.card__body {
-	padding: 1rem 2rem;
-}
-
-// Details
-.detail {
-	margin: 3rem 0;
-
-	@media (min-width: 768px) {
-		display: grid;
-		grid-template-columns: 2.8fr 3fr;
-		gap: 6rem;
-	}
-}
-
-.detail__image {
-	height: 15rem;
-	max-height: 15rem;
-
-	img {
-		border-radius: 0.5rem;
-		width: 100%;
-		height: 100%;
-	}
-
-	@media (min-width: 768px) {
-		height: 30rem;
-		max-height: 30rem;
-	}
-}
-
-.detail__title {
-	@media (min-width: 768px) {
-		font-size: 2.2rem;
-	}
-}
-
-.detail__content {
-	@media (min-width: 768px) {
-		height: 14rem;
-		max-height: 14rem;
-		font-size: 1.2rem;
-
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		justify-content: space-between;
-	}
-}
-
-.detail__footer {
-	margin: 2.5rem 0;
-}
-
-.detail__border {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
-
-	@media (min-width: 768px) {
-		gap: 2rem;
-	}
-
-	.button {
-		padding: 1rem;
-		font-size: 1.2rem;
 	}
 }

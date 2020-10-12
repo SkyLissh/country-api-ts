@@ -1,5 +1,6 @@
 /// <reference path="./models/country.ts"/>
 /// <reference path="./api.ts"/>
+/// <reference path="./theme.ts"/>
 
 async function main(): Promise<void> {
 	const countrySelected: HTMLSelectElement | null = document.querySelector(
@@ -8,6 +9,8 @@ async function main(): Promise<void> {
 	const searchInput: HTMLInputElement | null = document.querySelector('#search');
 
 	let countries: Country[] | null = await Api.getAllCountries();
+
+	Theme.setTheme();
 
 	renderCountries(countries);
 
@@ -24,6 +27,8 @@ async function main(): Promise<void> {
 	searchInput?.addEventListener('input', searchCountry);
 
 	renderDetails();
+
+	Theme.toggleTheme();
 }
 
 document.addEventListener('DOMContentLoaded', (): void => {
