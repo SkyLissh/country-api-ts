@@ -222,6 +222,10 @@ select {
 	border-radius: 0.5rem;
 	box-shadow: 8px 8px 20px -10px;
 
+	&:hover {
+		cursor: pointer;
+	}
+
 	@media (min-width: 768px) {
 		margin: 0;
 	}
