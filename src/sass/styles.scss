@@ -75,20 +75,37 @@ select {
 }
 
 // Button
+.button {
+	padding: 1rem 2rem;
+
+	background: $lightPrimary;
+	color: $lightElement;
+	box-shadow: 8px 8px 20px -12px $darkElement;
+	border-radius: 0.5rem;
+
+	font-size: 1.3rem;
+	font-weight: 600;
+
+	i {
+		margin-right: 1rem;
+	}
+}
+
 .button--fab {
 	padding: 0;
 	height: 3rem;
 	width: 3rem;
 
 	border-radius: 100%;
-	color: $lightElement;
-	background: $lightPrimary;
-	box-shadow: 8px 8px 20px -12px $darkElement;
 	font-size: 1.5rem;
 
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
+
+	i {
+		margin: 0;
+	}
 }
 
 // Navbar
@@ -98,7 +115,7 @@ select {
 	top: 0;
 	left: 0;
 
-	width: 100%;
+	width: 100vw;
 	padding: 1.5rem 0;
 
 	background: $lightElement;
@@ -248,4 +265,64 @@ select {
 }
 .card__body {
 	padding: 1rem 2rem;
+}
+
+// Details
+.detail {
+	margin: 3rem 0;
+
+	@media (min-width: 768px) {
+		display: grid;
+		grid-template-columns: 2.8fr 3fr;
+		gap: 6rem;
+	}
+}
+
+.detail__image {
+	height: 15rem;
+	max-height: 15rem;
+
+	img {
+		border-radius: 0.5rem;
+		width: 100%;
+		height: 100%;
+	}
+
+	@media (min-width: 768px) {
+		height: 30rem;
+		max-height: 30rem;
+	}
+}
+
+.detail__title {
+	@media (min-width: 768px) {
+		font-size: 2.2rem;
+	}
+}
+
+.detail__content {
+	@media (min-width: 768px) {
+		height: 14rem;
+		max-height: 14rem;
+		font-size: 1.2rem;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+.detail__footer {
+	margin: 2.5rem 0;
+}
+
+.detail__border {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+
+	.button {
+		padding: 1rem;
+		font-size: 1.2rem;
+	}
 }
