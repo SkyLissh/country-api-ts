@@ -67,7 +67,7 @@ function createCard(country: Country): Element {
 	cardImage.appendChild(flag);
 
 	const population: Element = document.createElement('p');
-	population.innerHTML = `<span class="text--semibold">Population: </span>${country.population}`;
+	population.innerHTML = `<span class="text--semibold">Population: </span>${country.population.toFixed()}`;
 
 	const region: Element = document.createElement('p');
 	region.innerHTML = `<span class="text--semibold">Region: </span>${country.region}`;
