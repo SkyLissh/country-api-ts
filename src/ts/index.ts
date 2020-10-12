@@ -67,7 +67,9 @@ function createCard(country: Country): Element {
 	cardImage.appendChild(flag);
 
 	const population: Element = document.createElement('p');
-	population.innerHTML = `<span class="text--semibold">Population: </span>${country.population.toFixed()}`;
+	population.innerHTML = `<span class="text--semibold">Population: </span>${formatNumbers(
+		country.population
+	)}`;
 
 	const region: Element = document.createElement('p');
 	region.innerHTML = `<span class="text--semibold">Region: </span>${country.region}`;
@@ -92,4 +94,8 @@ function createCard(country: Country): Element {
 	card.append(cardImage, cardBody);
 
 	return card;
+}
+
+function formatNumbers(x: number): string {
+	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 }
